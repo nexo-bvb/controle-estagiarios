@@ -33,7 +33,15 @@ export function InternTable({ data }: InternTableProps) {
       const matchSearch = intern.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           intern.secretariat.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           intern.role.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchYear = yearFilter ? intern.startDate.substring(0, 4) === yearFilter : true;
+      let matchYear = true;
+      if (yearFilter) {
+        const startYear = parseInt(intern.startDate.substring(0, 4));
+        const endYearRaw = parseInt(intern.endDate.substring(0, 4));
+        const endYear = !isNaN(endYearRaw) ? endYearRaw : startYear;
+        const filterYear = parseInt(yearFilter);
+        matchYear = startYear <= filterYear && endYear >= filterYear;
+      }
+      
       return matchSearch && matchYear;
     });
     
