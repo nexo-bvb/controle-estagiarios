@@ -13,11 +13,7 @@ function App() {
         <Header />
         
         <main className="flex-1 p-8 overflow-y-auto">
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-8">
-              <h1 className="text-2xl font-bold text-slate-800">Visão Geral</h1>
-              <p className="text-slate-500 mt-1">Bem-vindo ao painel de gestão de estagiários.</p>
-            </div>
+          <div className="max-w-7xl mx-auto pt-4">
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
