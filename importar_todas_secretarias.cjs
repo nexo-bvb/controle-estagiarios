@@ -38,7 +38,7 @@ excelFiles.forEach(file => {
     // BaseDir é C:\dados estagiarios (2 partes na raiz ou 1 se drive for diferente, vamos usar indexação relativa)
     let yearStr = '2024';
     let secretariat = 'Desconhecida';
-    const yearIndex = parts.findIndex(p => p === '2024' || p === '2025' || p === '2026');
+    const yearIndex = parts.findIndex(p => p === '2023' || p === '2024' || p === '2025' || p === '2026');
     if (yearIndex !== -1) {
       yearStr = parts[yearIndex];
       if (parts.length > yearIndex + 1) {
@@ -88,6 +88,7 @@ excelFiles.forEach(file => {
         if (cleanName === '' || cleanName.toUpperCase() === 'NOME' || cleanName.length < 5) continue;
         
         const key = cleanName.toLowerCase();
+        const currentYear = parseInt(yearStr);
         
         if (!internsMap.has(key)) {
           internsMap.set(key, {
@@ -98,8 +99,21 @@ excelFiles.forEach(file => {
             role: 'Estagiário(a)',
             status: 'Ativo',
             startDate: `${yearStr}-01-01`,
-            endDate: `${parseInt(yearStr)+1}-01-01`
+            endDate: `${currentYear + 1}-01-01`
           });
+        } else {
+          const existing = internsMap.get(key);
+          const existingStart = parseInt(existing.startDate.substring(0, 4));
+          const existingEnd = parseInt(existing.endDate.substring(0, 4));
+          
+          // Se este arquivo for de um ano anterior ao registrado, atualiza o início
+          if (currentYear < existingStart) {
+            existing.startDate = `${yearStr}-01-01`;
+          }
+          // Se este arquivo for de um ano posterior ao registrado, atualiza o fim
+          if (currentYear + 1 > existingEnd) {
+            existing.endDate = `${currentYear + 1}-01-01`;
+          }
         }
       }
     } else {

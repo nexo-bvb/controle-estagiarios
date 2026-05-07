@@ -70,7 +70,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2024-01-01",
-    "endDate": "2025-01-01"
+    "endDate": "2026-01-01"
   },
   {
     "id": "7",
@@ -170,7 +170,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "17",
@@ -190,7 +190,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "19",
@@ -200,7 +200,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "20",
@@ -220,7 +220,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "22",
@@ -230,7 +230,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "23",
@@ -240,7 +240,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "24",
@@ -260,7 +260,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "26",
@@ -290,7 +290,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "29",
@@ -300,7 +300,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "30",
@@ -310,7 +310,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "31",
@@ -320,7 +320,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "32",
@@ -330,7 +330,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "33",
@@ -350,7 +350,7 @@ export const MOCK_INTERNS: Intern[] = [
     "role": "Estagiário(a)",
     "status": "Ativo",
     "startDate": "2025-01-01",
-    "endDate": "2026-01-01"
+    "endDate": "2027-01-01"
   },
   {
     "id": "35",
