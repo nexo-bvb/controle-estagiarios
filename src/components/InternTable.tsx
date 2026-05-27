@@ -10,6 +10,7 @@ interface InternTableProps {
 export function InternTable({ data }: InternTableProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [yearFilter, setYearFilter] = useState<string>('');
+  const [secretariatFilter, setSecretariatFilter] = useState<string>('');
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15;
@@ -24,15 +25,20 @@ export function InternTable({ data }: InternTableProps) {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, yearFilter]);
+  }, [searchTerm, yearFilter, secretariatFilter]);
 
   const availableYears = ['2026', '2025', '2024', '2023'];
+  const availableSecretariats = useMemo(
+    () => [...new Set(data.map((intern) => intern.secretariat))].sort(),
+    [data],
+  );
 
   const filteredData = useMemo(() => {
     const result = data.filter(intern => {
       const matchSearch = intern.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           intern.secretariat.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           intern.role.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchSecretariat = !secretariatFilter || intern.secretariat === secretariatFilter;
       let matchYear = true;
       if (yearFilter) {
         const startYear = parseInt(intern.startDate.substring(0, 4));
@@ -42,11 +48,11 @@ export function InternTable({ data }: InternTableProps) {
         matchYear = startYear <= filterYear && endYear >= filterYear;
       }
       
-      return matchSearch && matchYear;
+      return matchSearch && matchYear && matchSecretariat;
     });
     
     return result.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
-  }, [data, searchTerm, yearFilter]);
+  }, [data, searchTerm, yearFilter, secretariatFilter]);
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   
@@ -177,6 +183,20 @@ export function InternTable({ data }: InternTableProps) {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm"
             />
+          </div>
+
+          <div className="relative w-full sm:w-auto">
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <select
+              value={secretariatFilter}
+              onChange={(e) => setSecretariatFilter(e.target.value)}
+              className="w-full sm:w-auto pl-10 pr-8 py-2 bg-white border border-slate-200 rounded-lg text-sm appearance-none focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all cursor-pointer shadow-sm"
+            >
+              <option value="">Todos os órgãos</option>
+              {availableSecretariats.map((secretariat) => (
+                <option key={secretariat} value={secretariat}>{secretariat}</option>
+              ))}
+            </select>
           </div>
           
           <div className="relative w-full sm:w-auto">
